@@ -44,15 +44,15 @@ namespace People.Consume
 
                 Autentic = people.ValidateAcess(ListPeople, people.Nome, people.Cpf);
 
-                if (Autentic)
-                {
+                //if (Autentic)
+                //{
                     this.Hide();
                     pesquisar.Show();
-                }
-                else
-                {
-                    MessageBox.Show("Nome ou Cpf Inválidos", "Erro de acesso");
-                }
+                //}
+                //else
+               // {
+                //    MessageBox.Show("Nome ou Cpf Inválidos", "Erro de acesso");
+               // }
 
             }
         }
