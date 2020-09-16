@@ -17,8 +17,6 @@ namespace People.Consume
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Index());
-            Pesquisar p = new Pesquisar();
-            p.Pesq();
         }
     }
 }
