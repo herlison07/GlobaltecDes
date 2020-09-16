@@ -32,8 +32,8 @@ namespace People.Consume
         {
             using (HttpClient client = new HttpClient())
             {
-                client.BaseAddress = new Uri("http://localhost:62216/api/people");
-                var resp = await client.GetAsync("http://localhost:62216/api/people");
+                client.BaseAddress = new Uri("http://webapidesafio.gearhostpreview.com/api/people");
+                var resp = await client.GetAsync("http://webapidesafio.gearhostpreview.com/api/people");
 
                 string dados = await resp.Content.ReadAsStringAsync();
 
@@ -54,7 +54,7 @@ namespace People.Consume
                 {
                     using (HttpClient client = new HttpClient())
                     {
-                        client.BaseAddress = new Uri("http://localhost:62216/api/people/");
+                        client.BaseAddress = new Uri("http://webapidesafio.gearhostpreview.com/api/people/");
                         var resp = await client.GetAsync("");
 
                         string dados = await resp.Content.ReadAsStringAsync();
@@ -67,11 +67,11 @@ namespace People.Consume
                 {
                     using (HttpClient client = new HttpClient())
                     {
-                        client.BaseAddress = new Uri("http://localhost:62216/people/uf/" + TBText);
+                        client.BaseAddress = new Uri("http://webapidesafio.gearhostpreview.com/people/uf/" + TBText);
                         var resp = new HttpResponseMessage();
                         try
                         {
-                            resp = await client.GetAsync("http://localhost:62216/people/uf/" + TBText);
+                            resp = await client.GetAsync("http://webapidesafio.gearhostpreview.com/people/uf/" + TBText);
 
                             string dados = await resp.Content.ReadAsStringAsync();
 
@@ -88,11 +88,11 @@ namespace People.Consume
                 {
                     using (HttpClient client = new HttpClient())
                     {
-                        client.BaseAddress = new Uri("http://localhost:62216/people/cpf/" + TBText);
+                        client.BaseAddress = new Uri("http://webapidesafio.gearhostpreview.com/people/cpf/" + TBText);
                         var resp = new HttpResponseMessage();
                         try
                         {
-                            resp = await client.GetAsync("http://localhost:62216/people/cpf/" + TBText);
+                            resp = await client.GetAsync("http://webapidesafio.gearhostpreview.com/people/cpf/" + TBText);
 
                             string dados = await resp.Content.ReadAsStringAsync();
 
@@ -111,7 +111,7 @@ namespace People.Consume
                 {
                     using (HttpClient client = new HttpClient())
                     {
-                        client.BaseAddress = new Uri("http://localhost:62216/api/people");
+                        client.BaseAddress = new Uri("http://webapidesafio.gearhostpreview.com/api/people");
 
                         Autentication.Models.People people = new Autentication.Models.People();
                         people.Cod = int.Parse(TbCod.Text);
@@ -122,7 +122,7 @@ namespace People.Consume
 
                         try
                         {
-                            var resp = await client.PutAsJsonAsync("http://localhost:62216/api/people", people);
+                            var resp = await client.PutAsJsonAsync("http://webapidesafio.gearhostpreview.com/api/people", people);
                             MessageBox.Show(people.ToString(), "Dados Alterados");
                             Pesq();
                         }
@@ -138,7 +138,7 @@ namespace People.Consume
                 {
                     using (HttpClient client = new HttpClient())
                     {
-                        client.BaseAddress = new Uri("http://localhost:62216/api/people");
+                        client.BaseAddress = new Uri("http://webapidesafio.gearhostpreview.com/api/people");
 
                         Autentication.Models.People people = new Autentication.Models.People();
                         people.Cod = int.Parse(TbCod.Text);
@@ -149,7 +149,7 @@ namespace People.Consume
 
                         try
                         {
-                            var resp = await client.DeleteAsync("http://localhost:62216/people/" + people.Cod);
+                            var resp = await client.DeleteAsync("http://webapidesafio.gearhostpreview.com/people/" + people.Cod);
                             MessageBox.Show(people.ToString(), "Pessoa Deletada");
                             Pesq();
                         }

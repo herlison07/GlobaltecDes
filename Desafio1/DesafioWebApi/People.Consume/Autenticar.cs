@@ -31,8 +31,8 @@ namespace People.Consume
 
             using (HttpClient client = new HttpClient())
             {
-                client.BaseAddress = new Uri("http://localhost:62216/api/people");
-                var resp = await client.GetAsync("http://localhost:62216/api/people");
+                client.BaseAddress = new Uri("http://webapidesafio.gearhostpreview.com/api/people");
+                var resp = await client.GetAsync("http://webapidesafio.gearhostpreview.com/api/people");
 
                 string dados = await resp.Content.ReadAsStringAsync();
 
@@ -55,6 +55,11 @@ namespace People.Consume
                 }
 
             }
+        }
+
+        private void BtnAutenticar_Click(object sender, EventArgs e)
+        {
+
         }
     }
     

@@ -77,6 +77,7 @@
             this.BtnAutenticar.TabIndex = 4;
             this.BtnAutenticar.Text = "Autenticar";
             this.BtnAutenticar.UseVisualStyleBackColor = true;
+            this.BtnAutenticar.Click += new System.EventHandler(this.BtnAutenticar_Click);
             this.BtnAutenticar.MouseClick += new System.Windows.Forms.MouseEventHandler(this.BtnAutenticar_MouseClick);
             // 
             // label3

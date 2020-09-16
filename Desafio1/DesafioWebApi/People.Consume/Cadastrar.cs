@@ -23,14 +23,14 @@ namespace People.Consume
         {
             using (HttpClient client = new HttpClient())
             {
-                client.BaseAddress = new Uri("http://localhost:62216/api/people");
+                client.BaseAddress = new Uri("http://webapidesafio.gearhostpreview.com/api/people");
                 Autentication.Models.People people = new Autentication.Models.People(0, TbCpf.Text, TbNome.Text, CbUf.SelectedItem.ToString(),
                                                          DtpNascimento.Value.Day, DtpNascimento.Value.Month, DtpNascimento.Value.Year);
 
 
                 try
                 {
-                    var resp = await client.PostAsJsonAsync("http://localhost:62216/api/people", people);
+                    var resp = await client.PostAsJsonAsync("http://webapidesafio.gearhostpreview.com/api/people", people);
                     string ret = await resp.Content.ReadAsStringAsync();
                     MessageBox.Show("Sucesso no cadastro",people.ToString());
                     this.Close();
