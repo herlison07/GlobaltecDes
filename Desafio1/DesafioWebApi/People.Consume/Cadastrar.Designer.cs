@@ -115,6 +115,7 @@
             this.CbUf.Name = "CbUf";
             this.CbUf.Size = new System.Drawing.Size(67, 21);
             this.CbUf.TabIndex = 5;
+            this.CbUf.Text = "AC";
             this.CbUf.UseWaitCursor = true;
             // 
             // LNascimento
@@ -158,7 +159,10 @@
             this.Controls.Add(this.LCpf);
             this.Controls.Add(this.TbNome);
             this.Controls.Add(this.LNome);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.MaximizeBox = false;
             this.Name = "Cadastrar";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Cadastrar";
             this.ResumeLayout(false);
             this.PerformLayout();

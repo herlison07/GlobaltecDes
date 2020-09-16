@@ -14,90 +14,44 @@ namespace People.Autentication.Controllers
 {
     public class PeopleController : ApiController
     {
-        // POST: api/People1
-        [ResponseType(typeof(Models.People))]
-        public IHttpActionResult PostPeople(Models.People people)
-        {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
-
-            db.People.Add(people);
-            db.SaveChanges();
-
-            return CreatedAtRoute("DefaultApi", new { id = people.Cod }, people);
-        }
         private PeopleDataContext db = new PeopleDataContext();
         //[Authorize()]
         public IQueryable<Models.People> GetPeoples()
         {
             return db.People;
         }
+        [Route("people/cpf/{cpf}")]
+        public HttpResponseMessage GetPeopleByCpf(string cpf)
+        {
+            var result = db.People.Where(x => x.Cpf == cpf);
+            return Request.CreateResponse(HttpStatusCode.OK, value: result);
+        }
+        [Route("people/uf/{uf}")]
+        public HttpResponseMessage GetPeopleByUf(string uf)
+        {
+            var result = db.People.Where(x => x.Uf == uf);
+            return Request.CreateResponse(HttpStatusCode.OK, value: result);
+        }
+        // POST: api/People
         [ResponseType(typeof(Models.People))]
-        [Authorize()]
-        [Route("cpf/{cpf}")]
-        public IHttpActionResult GetPeopleByCpf(string uf)
+        public IHttpActionResult PostPeople(Models.People people)
         {
-            Models.People people = db.People.Find(uf); 
-            if (people == null)
-            {
-                return NotFound();
-            }
-            else
-            {
-                return Ok(people);
-            }
+            db.People.Add(new Models.People(people.Cod, people.Cpf, people.Nome, people.Uf, people.Nascimento.Day, people.Nascimento.Month, people.Nascimento.Year));
+            db.SaveChanges();
+
+            return Ok(people);
+
         }
-        [Authorize()]
-        [Route("codigo/{cod}")]
-        public IHttpActionResult GetPeopleByCod(int cod)
+        public IHttpActionResult PutPeople(Models.People people)
         {
-            Models.People people = db.People.Find(cod);
-            if (people == null)
-            {
-                return NotFound();
-            }
-            else
-            {
-                return Ok(people);
-            }
-        }
-        [Authorize()]
-        public IHttpActionResult PutPeople(int id, Models.People people)
-        {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
+            db.Entry<Models.People>(people).State = EntityState.Modified;
+            db.SaveChanges();
 
-            if (id != people.Cod)
-            {
-                return BadRequest();
-            }
+            return Ok(people);
 
-            db.Entry(people).State = EntityState.Modified;
-
-            try
-            {
-                db.SaveChanges();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!PeopleExists(id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
-            }
-
-            return StatusCode(HttpStatusCode.NoContent);
         }
         // DELETE: api/People/5
-        [Authorize()]
+        [Route("people/{id}")]
         [ResponseType(typeof(Models.People))]
         public IHttpActionResult DeletePeople(int id)
         {

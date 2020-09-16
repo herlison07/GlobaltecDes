@@ -15,7 +15,6 @@ namespace People.Autentication.Models
 
         public People()
         {
-
         }
 
         public People(int Cod, string Cpf, string Nome, string Uf, int d, int m, int a)
@@ -38,14 +37,24 @@ namespace People.Autentication.Models
                 return false;
             }
         }
-
+        public bool ValidateAcess(List<People> People, string User, string pass)
+        {
+            if((People.Find(x=>x.Nome == User && x.Cpf == pass))!=null)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
         public override string ToString()
         {
             return "\nCodigo: " + Cod + "\n" +
                    "Nome: " + Nome + "\n" +
                    "Cpf: " + Cpf + "\n" +
                    "Uf: " + Uf + "\n" +
-                   "Nascimento: " + Nascimento.ToString();
+                   "Nascimento: " + Nascimento.ToString("dd/MM/yyyy");
         }
     }
 }

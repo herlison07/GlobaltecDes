@@ -40,18 +40,14 @@
             this.TbCod = new System.Windows.Forms.TextBox();
             this.TbNome = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.TbUf = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.TbCpf = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.TbNasc = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.BtnExecutar = new System.Windows.Forms.Button();
-            this.Codigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Nome = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Cpf = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Uf = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Nascimento = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.BtnSair = new System.Windows.Forms.Button();
+            this.TbNasc = new System.Windows.Forms.DateTimePicker();
+            this.TbUf = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.DgvPeople)).BeginInit();
             this.SuspendLayout();
             // 
@@ -73,18 +69,20 @@
             "UF"});
             this.CbFiltro.Location = new System.Drawing.Point(64, 22);
             this.CbFiltro.Name = "CbFiltro";
-            this.CbFiltro.Size = new System.Drawing.Size(60, 21);
+            this.CbFiltro.Size = new System.Drawing.Size(71, 21);
             this.CbFiltro.TabIndex = 1;
+            this.CbFiltro.Text = "Nenhum";
             // 
             // TbFiltro
             // 
-            this.TbFiltro.Location = new System.Drawing.Point(251, 23);
+            this.TbFiltro.Location = new System.Drawing.Point(199, 23);
             this.TbFiltro.Name = "TbFiltro";
             this.TbFiltro.Size = new System.Drawing.Size(179, 20);
             this.TbFiltro.TabIndex = 2;
             // 
             // BtnPesquisar
             // 
+            this.BtnPesquisar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.BtnPesquisar.Location = new System.Drawing.Point(26, 68);
             this.BtnPesquisar.Name = "BtnPesquisar";
             this.BtnPesquisar.Size = new System.Drawing.Size(75, 23);
@@ -95,7 +93,8 @@
             // 
             // BtnExcluir
             // 
-            this.BtnExcluir.Location = new System.Drawing.Point(355, 68);
+            this.BtnExcluir.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnExcluir.Location = new System.Drawing.Point(303, 68);
             this.BtnExcluir.Name = "BtnExcluir";
             this.BtnExcluir.Size = new System.Drawing.Size(75, 23);
             this.BtnExcluir.TabIndex = 4;
@@ -105,7 +104,8 @@
             // 
             // BtnAlterar
             // 
-            this.BtnAlterar.Location = new System.Drawing.Point(189, 68);
+            this.BtnAlterar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnAlterar.Location = new System.Drawing.Point(155, 68);
             this.BtnAlterar.Name = "BtnAlterar";
             this.BtnAlterar.Size = new System.Drawing.Size(75, 23);
             this.BtnAlterar.TabIndex = 5;
@@ -116,22 +116,16 @@
             // DgvPeople
             // 
             this.DgvPeople.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DgvPeople.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Codigo,
-            this.Nome,
-            this.Cpf,
-            this.Uf,
-            this.Nascimento});
             this.DgvPeople.Location = new System.Drawing.Point(26, 110);
             this.DgvPeople.Name = "DgvPeople";
-            this.DgvPeople.Size = new System.Drawing.Size(404, 82);
+            this.DgvPeople.Size = new System.Drawing.Size(431, 82);
             this.DgvPeople.TabIndex = 6;
-            this.DgvPeople.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvPeople_CellContentClick);
+            this.DgvPeople.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvPeople_CellClick);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(207, 26);
+            this.label2.Location = new System.Drawing.Point(152, 25);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(41, 13);
             this.label2.TabIndex = 7;
@@ -158,7 +152,7 @@
             // 
             this.TbNome.Location = new System.Drawing.Point(196, 208);
             this.TbNome.Name = "TbNome";
-            this.TbNome.Size = new System.Drawing.Size(234, 20);
+            this.TbNome.Size = new System.Drawing.Size(261, 20);
             this.TbNome.TabIndex = 11;
             // 
             // label4
@@ -169,13 +163,6 @@
             this.label4.Size = new System.Drawing.Size(38, 13);
             this.label4.TabIndex = 10;
             this.label4.Text = "Nome:";
-            // 
-            // TbUf
-            // 
-            this.TbUf.Location = new System.Drawing.Point(76, 234);
-            this.TbUf.Name = "TbUf";
-            this.TbUf.Size = new System.Drawing.Size(48, 20);
-            this.TbUf.TabIndex = 13;
             // 
             // label5
             // 
@@ -202,17 +189,10 @@
             this.label6.TabIndex = 14;
             this.label6.Text = "CPF:";
             // 
-            // TbNasc
-            // 
-            this.TbNasc.Location = new System.Drawing.Point(355, 237);
-            this.TbNasc.Name = "TbNasc";
-            this.TbNasc.Size = new System.Drawing.Size(75, 20);
-            this.TbNasc.TabIndex = 17;
-            // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(288, 241);
+            this.label7.Location = new System.Drawing.Point(281, 241);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(66, 13);
             this.label7.TabIndex = 16;
@@ -228,57 +208,74 @@
             this.BtnExecutar.UseVisualStyleBackColor = true;
             this.BtnExecutar.Click += new System.EventHandler(this.BtnExecutar_ClickAsync);
             // 
-            // Codigo
+            // BtnSair
             // 
-            this.Codigo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.Codigo.HeaderText = "Codigo";
-            this.Codigo.Name = "Codigo";
-            this.Codigo.ReadOnly = true;
-            this.Codigo.Width = 65;
+            this.BtnSair.Location = new System.Drawing.Point(382, 276);
+            this.BtnSair.Name = "BtnSair";
+            this.BtnSair.Size = new System.Drawing.Size(75, 23);
+            this.BtnSair.TabIndex = 19;
+            this.BtnSair.Text = "Sair";
+            this.BtnSair.UseVisualStyleBackColor = true;
+            this.BtnSair.Click += new System.EventHandler(this.BtnSair_Click);
             // 
-            // Nome
+            // TbNasc
             // 
-            this.Nome.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.Nome.HeaderText = "Nome";
-            this.Nome.Name = "Nome";
-            this.Nome.ReadOnly = true;
-            this.Nome.Width = 60;
+            this.TbNasc.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.TbNasc.Location = new System.Drawing.Point(344, 237);
+            this.TbNasc.Name = "TbNasc";
+            this.TbNasc.Size = new System.Drawing.Size(113, 20);
+            this.TbNasc.TabIndex = 20;
             // 
-            // Cpf
+            // TbUf
             // 
-            this.Cpf.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.Cpf.HeaderText = "CPF";
-            this.Cpf.Name = "Cpf";
-            this.Cpf.ReadOnly = true;
-            this.Cpf.Width = 52;
-            // 
-            // Uf
-            // 
-            this.Uf.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.Uf.HeaderText = "UF";
-            this.Uf.Name = "Uf";
-            this.Uf.ReadOnly = true;
-            this.Uf.Width = 46;
-            // 
-            // Nascimento
-            // 
-            this.Nascimento.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.Nascimento.HeaderText = "Nascimento";
-            this.Nascimento.Name = "Nascimento";
-            this.Nascimento.ReadOnly = true;
-            this.Nascimento.Width = 88;
+            this.TbUf.FormattingEnabled = true;
+            this.TbUf.Items.AddRange(new object[] {
+            "AC",
+            "AL",
+            "AP",
+            "AM",
+            "BA",
+            "CE",
+            "DF",
+            "ES",
+            "GO",
+            "MA",
+            "MT",
+            "MS",
+            "MG",
+            "PA",
+            "PB",
+            "PR",
+            "PE",
+            "PI",
+            "RJ",
+            "RN",
+            "RS",
+            "RO",
+            "RR",
+            "SP",
+            "SC",
+            "SE",
+            "TO"});
+            this.TbUf.Location = new System.Drawing.Point(76, 234);
+            this.TbUf.Name = "TbUf";
+            this.TbUf.Size = new System.Drawing.Size(48, 21);
+            this.TbUf.TabIndex = 21;
+            this.TbUf.UseWaitCursor = true;
             // 
             // Pesquisar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(469, 311);
-            this.Controls.Add(this.BtnExecutar);
+            this.ClientSize = new System.Drawing.Size(475, 311);
+            this.ControlBox = false;
+            this.Controls.Add(this.TbUf);
             this.Controls.Add(this.TbNasc);
+            this.Controls.Add(this.BtnSair);
+            this.Controls.Add(this.BtnExecutar);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.TbCpf);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.TbUf);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.TbNome);
             this.Controls.Add(this.label4);
@@ -292,7 +289,9 @@
             this.Controls.Add(this.TbFiltro);
             this.Controls.Add(this.CbFiltro);
             this.Controls.Add(this.label1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "Pesquisar";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Pesquisar";
             ((System.ComponentModel.ISupportInitialize)(this.DgvPeople)).EndInit();
             this.ResumeLayout(false);
@@ -314,17 +313,13 @@
         private System.Windows.Forms.TextBox TbCod;
         private System.Windows.Forms.TextBox TbNome;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox TbUf;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox TbCpf;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox TbNasc;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Button BtnExecutar;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Codigo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Nome;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Cpf;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Uf;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Nascimento;
+        private System.Windows.Forms.Button BtnSair;
+        private System.Windows.Forms.DateTimePicker TbNasc;
+        private System.Windows.Forms.ComboBox TbUf;
     }
 }
