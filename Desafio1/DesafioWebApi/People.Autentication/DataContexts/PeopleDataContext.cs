@@ -8,7 +8,7 @@ namespace People.Autentication.DataContexts
 {
     public class PeopleDataContext : DbContext
     {
-        public PeopleDataContext() : base("PeopleConnectionString")
+        public PeopleDataContext() : base("ConnectionString")
         {
             Database.SetInitializer<PeopleDataContext>(new DataContextInitialize());
         }
