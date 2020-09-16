@@ -58,7 +58,7 @@ namespace People.Consume
                         var resp = await client.GetAsync("");
 
                         string dados = await resp.Content.ReadAsStringAsync();
-
+                        MessageBox.Show(resp.ToString(), "Erro");
                         List<Autentication.Models.People> ListPeople = new JavaScriptSerializer().Deserialize<List<Autentication.Models.People>>(dados);
                         DgvPeople.DataSource = ListPeople;
                     }
