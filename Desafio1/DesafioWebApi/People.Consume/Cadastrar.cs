@@ -32,7 +32,7 @@ namespace People.Consume
                 {
                     var resp = await client.PostAsJsonAsync("http://webapidesafio.gearhostpreview.com/api/people", people);
                     string ret = await resp.Content.ReadAsStringAsync();
-                    MessageBox.Show("Sucesso no cadastro",people.ToString());
+                    MessageBox.Show(people.ToString(), "Sucesso no cadastro");
                     this.Close();
                 }
                 catch (Exception ex)

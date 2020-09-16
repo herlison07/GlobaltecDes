@@ -15,7 +15,6 @@ namespace People.Autentication.Controllers
     public class PeopleController : ApiController
     {
         private PeopleDataContext db = new PeopleDataContext();
-        //[Authorize()]
         public IQueryable<Models.People> GetPeoples()
         {
             return db.People;
