@@ -14,7 +14,7 @@ namespace People.Consume
 {
     public partial class Index : Form
     {
-        public bool Autentic = false;
+        public bool Autentic = true;
         public Index()
         {
             InitializeComponent();

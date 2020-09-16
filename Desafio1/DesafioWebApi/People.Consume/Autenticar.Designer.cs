@@ -115,7 +115,7 @@
             this.MaximizeBox = false;
             this.Name = "Index";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Auteticar";
+            this.Text = "Autenticar";
             this.ResumeLayout(false);
             this.PerformLayout();
 

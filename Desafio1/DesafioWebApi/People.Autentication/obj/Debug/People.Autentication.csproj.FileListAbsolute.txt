@@ -173,8 +173,8 @@ C:\Users\herli\Documents\VisualStudioProjects\Desafios\GlobaltecDes\Desafio1\Des
 C:\Users\herli\Documents\VisualStudioProjects\Desafios\GlobaltecDes\Desafio1\DesafioWebApi\People.Autentication\bin\pt-br\System.Net.Http.Formatting.resources.dll
 C:\Users\herli\Documents\VisualStudioProjects\Desafios\GlobaltecDes\Desafio1\DesafioWebApi\People.Autentication\bin\pt-br\System.Web.Http.resources.dll
 C:\Users\herli\Documents\VisualStudioProjects\Desafios\GlobaltecDes\Desafio1\DesafioWebApi\People.Autentication\bin\pt-br\System.Web.Http.WebHost.resources.dll
+C:\Users\herli\Documents\VisualStudioProjects\Desafios\GlobaltecDes\Desafio1\DesafioWebApi\People.Autentication\obj\Debug\People.Autentication.csprojAssemblyReference.cache
 C:\Users\herli\Documents\VisualStudioProjects\Desafios\GlobaltecDes\Desafio1\DesafioWebApi\People.Autentication\obj\Debug\People.Autentication.csproj.CoreCompileInputs.cache
 C:\Users\herli\Documents\VisualStudioProjects\Desafios\GlobaltecDes\Desafio1\DesafioWebApi\People.Autentication\obj\Debug\People.Autentication.csproj.CopyComplete
 C:\Users\herli\Documents\VisualStudioProjects\Desafios\GlobaltecDes\Desafio1\DesafioWebApi\People.Autentication\obj\Debug\People.Autentication.dll
 C:\Users\herli\Documents\VisualStudioProjects\Desafios\GlobaltecDes\Desafio1\DesafioWebApi\People.Autentication\obj\Debug\People.Autentication.pdb
-C:\Users\herli\Documents\VisualStudioProjects\Desafios\GlobaltecDes\Desafio1\DesafioWebApi\People.Autentication\obj\Debug\People.Autentication.csprojAssemblyReference.cache
