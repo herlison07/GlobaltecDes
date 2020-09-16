@@ -1,4 +1,11 @@
-SELECT Numero, P.Nome, DataVancimento, DataProrrogacao, Valor + (Valor*Acrescimo) + (Valor*Desconto) AS Valor_Líquido
-FROM Pessoas AS P
-INNER JOIN ContasPagas AS Cp ON P.Codigo == Cp.CodigoFornecedor
-INNER JOIN ContasAPagar AS Cap ON P.Codigo == Cap.CodigoFornecedor
+SELECT 'Conta Paga' AS Status,Cp.Numero, P.Nome AS Fornecedor, Cp.DataVancimento, Cp.DataProrrogacao, Cp.Valor + (Cp.Valor*Acrescimo) + (Cp.Valor*Desconto) AS Valor_Líquido
+FROM ContasPagas AS Cp
+INNER JOIN Pessoas AS P 
+ON P.Codigo == Cp.CodigoFornecedor
+
+UNION ALL
+
+SELECT 'Conta a Pagar' AS Status, Cap.Numero, P.Nome AS Fornecedor, Cap.DataVancimento, Cap.DataProrrogacao, Cap.Valor + (Cap.Valor*Acrescimo) + (Cap.Valor*Desconto) AS Valor_Líquido
+FROM ContasAPagar AS Cap
+INNER JOIN Pessoas AS P 
+ON P.Codigo == Cap.CodigoFornecedor
